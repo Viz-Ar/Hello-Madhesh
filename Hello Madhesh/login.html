@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – Hello Madhesh</title>
+    <meta name="description" content="Sign in to your Hello Madhesh citizen portal account to track and manage your reported issues.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- Logo -->
+            <div class="auth-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <h1>Hello Madhesh</h1>
+                <p>Citizen Portal – Madhesh Province</p>
+            </div>
+
+            <!-- Title -->
+            <h2 class="auth-title">Welcome back</h2>
+            <p class="auth-subtitle">Sign in to your account to continue</p>
+
+            <!-- Login Form -->
+            <form id="loginForm" novalidate>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required>
+                    </div>
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password"
+                            aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+                <!-- Remember me + Forgot -->
+                <div class="form-row-flex">
+                    <label class="remember-label">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-primary" id="loginBtn">
+                    Sign In
+                </button>
+
+            </form>
+
+            <!-- Divider -->
+            <div class="auth-divider">or</div>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                Don't have an account?
+                <a href="register.html">Create one for free</a>
+            </div>
+
+            <div class="auth-footer" style="margin-top:10px;">
+                <a href="admin-login.html" style="color:#888; font-size:13px; font-weight:400;">
+                    <i class="fa-solid fa-shield-halved" style="margin-right:4px;"></i>Admin Login
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Back to home -->
+    <div class="back-home">
+        <a href="index.html">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        // If user is already logged in, redirect them away from login page
+        (async () => {
+            const { data } = await supabase.auth.getSession();
+            if (data.session) {
+                const role = data.session.user?.user_metadata?.role || "citizen";
+                window.location.href = role === "admin" ? "admin.html" : "profile.html";
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

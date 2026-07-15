@@ -1,0 +1,135 @@
+.discover-section {
+
+    padding: 90px 8%;
+
+    background: white;
+}
+
+.discover-header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.discover-header h2 {
+
+    font-size: 40px;
+
+    color: #0F4C81;
+
+    margin-bottom: 15px;
+}
+
+.discover-header p {
+
+    color: #666;
+}
+
+.discover-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 40px;
+}
+
+.discover-controls input,
+.discover-controls select {
+
+    padding: 14px;
+
+    width: 250px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ddd;
+}
+
+.discover-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 25px;
+}
+
+.place-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+}
+
+.place-card:hover {
+
+    transform: translateY(-8px);
+}
+
+.place-card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.place-content {
+
+    padding: 20px;
+}
+
+.place-content h3 {
+
+    color: #0F4C81;
+
+    margin-bottom: 12px;
+}
+
+.place-content p {
+
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+.place-content span {
+
+    display: inline-block;
+
+    background: #0F4C81;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+}
+
+.place-content button {
+
+    background: #FFD54F;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}

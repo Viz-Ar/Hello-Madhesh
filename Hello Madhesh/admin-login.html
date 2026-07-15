@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login – Hello Madhesh</title>
+    <meta name="description" content="Admin login portal for Hello Madhesh citizen grievance management system.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        /* Admin login uses a darker, more serious theme */
+        body {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .auth-card {
+            border-top: 4px solid #FFD54F;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #1a1a2e, #0F4C81) !important;
+            border: 2px solid #FFD54F;
+        }
+
+        .admin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 213, 79, 0.12);
+            border: 1px solid rgba(255, 213, 79, 0.4);
+            color: #c79b00;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 auto 20px;
+            width: fit-content;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- Logo -->
+            <div class="auth-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h1>Hello Madhesh</h1>
+                <p>Secure Administration Portal</p>
+            </div>
+
+            <!-- Admin badge -->
+            <div style="text-align:center;">
+                <div class="admin-badge">
+                    <i class="fa-solid fa-lock"></i>
+                    Restricted Access
+                </div>
+            </div>
+
+            <!-- Title -->
+            <h2 class="auth-title">Admin Sign In</h2>
+            <p class="auth-subtitle">Only authorized administrators can access this panel</p>
+
+            <!-- Admin Login Form -->
+            <form id="adminLoginForm" novalidate>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Admin Email</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="admin@hellomadhesh.com"
+                            autocomplete="email"
+                            required>
+                    </div>
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Admin Password</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-key input-icon"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter admin password"
+                            autocomplete="current-password"
+                            required>
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password"
+                            aria-label="Toggle password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-primary" id="adminLoginBtn">
+                    <i class="fa-solid fa-right-to-bracket" style="margin-right:8px;"></i>
+                    Sign In as Admin
+                </button>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="auth-footer" style="margin-top:24px;">
+                <a href="login.html" style="color:#888;font-size:13px;font-weight:400;">
+                    <i class="fa-solid fa-user" style="margin-right:4px;"></i>Citizen Login
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Back to home -->
+    <div class="back-home">
+        <a href="index.html">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        // If already logged in as admin, redirect to dashboard
+        (async () => {
+            const { data } = await supabase.auth.getSession();
+            if (data.session) {
+                const role = data.session.user?.user_metadata?.role;
+                if (role === "admin") window.location.href = "admin.html";
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -2,88 +2,433 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Hello Madhesh</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello Madhesh | Citizen Portal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/discover.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/hamburger.css">
 </head>
 
 <body>
 
-    <!-- SPLASH SCREEN -->
-    <div id="splash">
-        <img src="welcome_splash.png" alt="Welcome to Madhesh">
-    </div>
+    <!-- Navbar -->
+    <header class="navbar">
 
-    <!-- MAIN CONTENT -->
-    <div id="main" class="hidden">
+        <div class="logo">
 
-        <header>
-            <h1>Hello Madhesh</h1>
-            <p>Tourist Guide of Madhesh Province</p>
-        </header>
+            <img src="assets/logo/logo.png" alt="Hello Madhesh">
 
-        <section id="districts">
-            <h2>📍 Explore by District</h2>
+            <span>Hello Madhesh</span>
 
-            <div class="district-container">
+        </div>
 
-                <div class="district" onclick="showPlaces('Dhanusha')">
-                    <img src="https://images.moondeveloper.com/attractions/2025/01/22/6790d18ddd6cb.webp">
-                    <h3>Dhanusha</h3>
-                </div>
+        <nav>
 
-                <div class="district" onclick="showPlaces('Bara')">
-                    <img
-                        src="https://th.bing.com/th/id/OIP.F-PfX8aAdRhHDnGipuTgVgHaE8?w=251&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
-                    <h3>Bara</h3>
-                </div>
+            <ul class="nav-links">
 
-                <div class="district" onclick="showPlaces('Saptari')">
-                    <img
-                        src="https://th.bing.com/th/id/OIP.SzguLOUXxqPVoja56ExTsgHaFj?w=207&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
-                    <h3>Saptari</h3>
-                </div>
+                <li><a href="#home">Home</a></li>
 
-                <div class="district" onclick="showPlaces('Parsa')">
-                    <img
-                        src="https://th.bing.com/th/id/OIP.0TbloUaYwVNS57D6vArjcAHaE9?w=236&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
-                    <h3>Parsa</h3>
-                </div>
-                <div class="district" onclick="showPlaces('Mahottari')">
-                    <img
-                        src="https://th.bing.com/th/id/OIP.af5DdNE_FH39CmOqTOooGgAAAA?w=208&h=141&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
-                    <h3>Mahottari</h3>
-                </div>
-                <div class="district" onclick="showPlaces('Sarlahi')">
-                    <img
-                        src="data:image/webp;base64,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">
-                    <h3>Sarlahi</h3>
-                </div>
-                <div class="district" onclick="showPlaces('Rautahat')">
-                    <img
-                        src="https://th.bing.com/th/id/OIP.r-T7QycVGlU21omubU-sgQHaEK?w=291&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
-                    <h3>Rautahat</h3>
-                </div>
-                <div class="district" onclick="showPlaces('Siraha')">
-                    <img src="https://i.ytimg.com/vi/9hmchQXgH5M/maxresdefault.jpg">
-                    <h3>Siraha</h3>
-                </div>
+                <li><a href="#report">Report Issue</a></li>
+
+                <li><a href="#issues">Track Issues</a></li>
+
+                <li><a href="#discover">Discover</a></li>
+
+                <li><a href="#footer">About</a></li>
+
+                <li><a href="login.html" id="navLoginLink">Login</a></li>
+
+                <li id="navProfileItem" style="display:none;"><a href="profile.html" id="navProfileLink">My Profile</a></li>
+
+            </ul>
+
+
+            <div class="hamburger" id="hamburger">
+
+                <span></span>
+                <span></span>
+                <span></span>
 
             </div>
-        </section>
 
-        <section id="places">
-            <h2 id="districtTitle">Select a District</h2>
-            <div id="placeList"></div>
-        </section>
+        </nav>
 
-        <footer>
-            <p>© 2026 Hello Madhesh | Tourism for All ❤️</p>
-        </footer>
+    </header>
 
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Hello Madhesh</h1>
+
+            <h2>Your Digital Citizen Portal</h2>
+
+            <p>
+
+                Report local issues, track their progress, and help improve your community.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button>Report Issue</button>
+
+                <button>Track Issues</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section" id="stats">
+
+        <h2 class="section-title">Citizen Portal Statistics</h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h3 id="totalReports">0</h3>
+                <p>
+
+                    <i class="fa-solid fa-file-circle-plus"></i>
+
+                    Total Reports
+
+                </p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="pendingReports">0</h3>
+                <p>
+
+                    <i class="fa-solid fa-hourglass-half"></i>
+
+                    Pending
+
+                </p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="progressReports">0</h3>
+                <p>
+
+                    <i class="fa-solid fa-spinner"></i>
+
+                    In Progress
+
+                </p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="resolvedReports">0</h3>
+                <p>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Resolved
+
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Report Issue -->
+    <section class="report-section" id="report">
+
+        <div class="report-container">
+
+            <div class="report-info">
+
+                <h2>Report a Local Issue</h2>
+
+                <p>
+                    Help improve your community by reporting problems such as damaged roads,
+                    electricity outages, water supply issues, garbage collection, public
+                    safety concerns, and more.
+                </p>
+
+                <ul>
+                    <li>✔ Fast and simple reporting</li>
+                    <li>✔ Track issue progress</li>
+                    <li>✔ Help local authorities respond faster</li>
+                    <li>✔ Build a better Madhesh together</li>
+                </ul>
+
+            </div>
+
+            <div class="report-form">
+
+                <form id="issueForm">
+
+                    <input type="text" id="name" placeholder="Full Name" required>
+
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+                    <input type="text" id="district" placeholder="District" required>
+
+                    <input type="text" id="municipality" placeholder="Municipality" required>
+
+                    <input type="text" id="ward" placeholder="Ward Number">
+
+                    <select id="category" required>
+
+                        <option value="">Select Issue Category</option>
+
+                        <option>Road Damage</option>
+
+                        <option>Electricity</option>
+
+                        <option>Water Supply</option>
+
+                        <option>Garbage</option>
+
+                        <option>Health</option>
+
+                        <option>Education</option>
+
+                        <option>Agriculture</option>
+
+                        <option>Environment</option>
+
+                        <option>Public Safety</option>
+
+                        <option>Other</option>
+
+                    </select>
+
+                    <textarea id="description" rows="6" placeholder="Describe the issue..." required></textarea>
+
+                    <input type="file" id="photo" accept="image/*">
+
+                    <button type="submit">
+
+                        Submit Report
+
+                    </button>
+
+                </form>
+
+                <p id="successMessage"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Track Issues -->
+    <section class="issues-section" id="issues">
+
+        <div class="issues-header">
+
+            <h2>Track Community Issues</h2>
+
+            <p>
+                Browse recently reported issues across Madhesh Province.
+            </p>
+
+        </div>
+
+        <div class="issue-controls">
+
+            <input type="text" id="searchInput" placeholder="Search issues...">
+
+            <select id="statusFilter">
+
+                <option value="all">All Status</option>
+
+                <option value="Pending">Pending</option>
+
+                <option value="In Progress">In Progress</option>
+
+                <option value="Resolved">Resolved</option>
+
+            </select>
+
+        </div>
+
+        <div id="issuesContainer" class="issues-grid">
+
+        </div>
+
+    </section>
+
+    <!-- Discover -->
+    <section class="discover-section" id="discover">
+
+        <div class="discover-header">
+
+            <h2>Discover Madhesh</h2>
+
+            <p>
+                Explore important places, services, and attractions across Madhesh Province.
+            </p>
+
+        </div>
+
+        <div class="discover-controls">
+
+            <input type="text" id="placeSearch" placeholder="Search places...">
+
+            <select id="categorySelect">
+
+                <option value="all">All Categories</option>
+
+                <option value="Tourism">Tourism</option>
+
+                <option value="Hospital">Hospital</option>
+
+                <option value="Government">Government</option>
+
+                <option value="Temple">Temple</option>
+
+                <option value="Hotel">Hotel</option>
+
+            </select>
+
+        </div>
+
+        <div id="discoverContainer" class="discover-grid">
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+
+                <h3>Hello Madhesh</h3>
+
+                <p>
+                    A Digital Citizen Portal connecting citizens with local government
+                    services across Madhesh Province.
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#report">Report Issue</a></li>
+
+                    <li><a href="#issues">Track Issues</a></li>
+
+                    <li><a href="#discover">Discover</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Emergency Contacts</h3>
+
+                <ul>
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Police : 100
+
+                    <i class="fa-solid fa-truck-medical"></i>
+
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <p>Email</p>
+
+                <p>support@hellomadhesh.com</p>
+
+                <p>Janakpur, Madhesh Province</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            © 2026 Hello Madhesh. All Rights Reserved.
+
+        </div>
+
+    </footer>
+    <!-- Toast notification (must be outside #topBtn) -->
+    <div id="toast"></div>
+
+    <!-- Back to top button -->
+    <button id="topBtn" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Full-screen loading overlay -->
+    <div id="loadingOverlay">
+        <div class="overlay-spinner"></div>
+        <p id="loadingLabel">Loading...</p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="script.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/report.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Update navbar based on login state
+        (async () => {
+            const { data } = await supabase.auth.getSession();
+            const loginLink   = document.getElementById("navLoginLink");
+            const profileItem = document.getElementById("navProfileItem");
+            if (data.session) {
+                if (loginLink) loginLink.parentElement.style.display = "none";
+                if (profileItem) profileItem.style.display = "block";
+            }
+        })();
+    </script>
+
+
 </body>
 
 </html>

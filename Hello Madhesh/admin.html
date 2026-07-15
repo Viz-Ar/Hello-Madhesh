@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – Hello Madhesh</title>
+    <meta name="description" content="Admin panel for Hello Madhesh grievance management.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-landmark"></i>
+            <span>Hello Madhesh</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="active">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+            <a href="#" id="sidebarReports">
+                <i class="fa-solid fa-file-lines"></i> All Reports
+            </a>
+            <a href="index.html">
+                <i class="fa-solid fa-globe"></i> View Site
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="btn-sidebar-logout" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ── Main Content ────────────────────────────────────── -->
+    <div class="admin-main">
+
+        <!-- Top Bar -->
+        <div class="admin-topbar">
+            <h1 id="pageTitle">Dashboard Overview</h1>
+            <div class="admin-user-info">
+                <span id="adminName">Admin</span>
+                <div class="admin-avatar" id="adminAvatar">A</div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="admin-content">
+
+            <!-- Stats -->
+            <div class="admin-stats">
+                <div class="astat-card">
+                    <div class="astat-icon blue"><i class="fa-solid fa-file-circle-plus"></i></div>
+                    <div class="astat-info">
+                        <h3 id="adminTotal">—</h3>
+                        <p>Total Reports</p>
+                    </div>
+                </div>
+                <div class="astat-card">
+                    <div class="astat-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <div class="astat-info">
+                        <h3 id="adminPending">—</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                <div class="astat-card">
+                    <div class="astat-icon cyan"><i class="fa-solid fa-spinner"></i></div>
+                    <div class="astat-info">
+                        <h3 id="adminProgress">—</h3>
+                        <p>In Progress</p>
+                    </div>
+                </div>
+                <div class="astat-card">
+                    <div class="astat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="astat-info">
+                        <h3 id="adminResolved">—</h3>
+                        <p>Resolved</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="admin-controls">
+                <div class="admin-search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                        type="text"
+                        class="admin-search"
+                        id="adminSearch"
+                        placeholder="Search by name, district, category…">
+                </div>
+                <select class="admin-filter" id="adminStatusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+                <select class="admin-filter" id="adminCategoryFilter">
+                    <option value="all">All Categories</option>
+                    <option>Road Damage</option>
+                    <option>Electricity</option>
+                    <option>Water Supply</option>
+                    <option>Garbage</option>
+                    <option>Health</option>
+                    <option>Education</option>
+                    <option>Agriculture</option>
+                    <option>Environment</option>
+                    <option>Public Safety</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- Table -->
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>District</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportsTableBody">
+                        <tr>
+                            <td colspan="7">
+                                <div class="admin-loading">
+                                    <div class="admin-spinner"></div>
+                                    <p>Loading reports…</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

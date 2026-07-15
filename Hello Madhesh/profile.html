@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile – Hello Madhesh</title>
+    <meta name="description" content="View your citizen profile and track your reported issues on Hello Madhesh.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="profile-nav">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-landmark"></i>
+            Hello Madhesh
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="btn-home">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <button class="btn-logout" data-action="logout" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="profile-page">
+
+        <!-- Profile Header -->
+        <div class="profile-header-card">
+            <div class="avatar-circle" id="avatarCircle">?</div>
+            <div class="profile-info">
+                <h2 id="profileName">Loading…</h2>
+                <p class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span id="profileEmail">—</span>
+                </p>
+                <p class="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span id="profilePhone">—</span>
+                </p>
+                <div class="profile-badge">
+                    <i class="fa-solid fa-user-check"></i>
+                    Verified Citizen
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="profile-stats">
+            <div class="pstat-card">
+                <h3 id="myTotal">—</h3>
+                <p><i class="fa-solid fa-file-circle-plus"></i> Total Reports</p>
+            </div>
+            <div class="pstat-card">
+                <h3 id="myPending">—</h3>
+                <p><i class="fa-solid fa-hourglass-half"></i> Pending</p>
+            </div>
+            <div class="pstat-card">
+                <h3 id="myProgress">—</h3>
+                <p><i class="fa-solid fa-spinner"></i> In Progress</p>
+            </div>
+            <div class="pstat-card">
+                <h3 id="myResolved">—</h3>
+                <p><i class="fa-solid fa-circle-check"></i> Resolved</p>
+            </div>
+        </div>
+
+        <!-- My Reports -->
+        <h3 class="section-title">
+            <i class="fa-solid fa-list-check"></i> My Submitted Reports
+        </h3>
+
+        <div id="myReportsGrid" class="my-reports-grid">
+            <div class="loading-msg">
+                <div class="spinner"></div>
+                <p>Loading your reports…</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

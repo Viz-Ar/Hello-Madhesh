@@ -1,0 +1,364 @@
+/* ============================================================
+   auth.css – Authentication Pages (Login, Register, Admin Login)
+   Design: matches Hello Madhesh brand (#0F4C81 blue, Poppins)
+   ============================================================ */
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a3260 0%, #1565C0 50%, #0F4C81 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Auth Page Layout ───────────────────────────────────────── */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* ── Auth Card ──────────────────────────────────────────────── */
+.auth-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 48px 44px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Logo / Header ──────────────────────────────────────────── */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-logo .logo-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #0F4C81, #2196F3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 26px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(15, 76, 129, 0.35);
+}
+
+.auth-logo h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0F4C81;
+    margin-bottom: 4px;
+}
+
+.auth-logo p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* ── Form Title ─────────────────────────────────────────────── */
+.auth-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 28px;
+}
+
+/* ── Form Fields ────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 7px;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px 16px 13px 42px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    color: #333;
+    transition: border-color .2s, background .2s, box-shadow .2s;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0F4C81;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.form-group input.error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Input without icon (e.g. select) */
+.form-group select {
+    padding-left: 42px;
+    cursor: pointer;
+}
+
+/* ── Password Toggle ────────────────────────────────────────── */
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 4px;
+    transition: color .2s;
+}
+
+.toggle-password:hover { color: #0F4C81; }
+
+/* ── Remember me / Forgot ───────────────────────────────────── */
+.form-row-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    font-size: 13px;
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #555;
+    cursor: pointer;
+}
+
+.remember-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #0F4C81;
+}
+
+.forgot-link {
+    color: #0F4C81;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+.forgot-link:hover { color: #08355d; }
+
+/* ── Primary Button ─────────────────────────────────────────── */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #0F4C81, #1565C0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s, opacity .2s;
+    box-shadow: 0 6px 20px rgba(15, 76, 129, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(15, 76, 129, 0.45);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ── Divider ────────────────────────────────────────────────── */
+.auth-divider {
+    text-align: center;
+    margin: 22px 0;
+    color: #bbb;
+    font-size: 13px;
+    position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background: #e8e8e8;
+}
+
+.auth-divider::before { left: 0; }
+.auth-divider::after  { right: 0; }
+
+/* ── Auth Footer Link ───────────────────────────────────────── */
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #888;
+}
+
+.auth-footer a {
+    color: #0F4C81;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.auth-footer a:hover { color: #08355d; text-decoration: underline; }
+
+/* ── Error / Help Text ──────────────────────────────────────── */
+.field-error {
+    display: none;
+    font-size: 12px;
+    color: #e74c3c;
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+.field-error.show { display: block; }
+
+/* ── Password Strength Bar ──────────────────────────────────── */
+.strength-bar {
+    height: 4px;
+    border-radius: 4px;
+    margin-top: 8px;
+    background: #eee;
+    overflow: hidden;
+    display: none;
+}
+
+.strength-bar.show { display: block; }
+
+.strength-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .3s, background .3s;
+}
+
+.strength-text {
+    font-size: 11px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* ── Toast (auth pages) ─────────────────────────────────────── */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #27ae60;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+    z-index: 9999;
+    max-width: 320px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ── Terms text ─────────────────────────────────────────────── */
+.terms-text {
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.6;
+}
+
+.terms-text a { color: #0F4C81; text-decoration: none; }
+.terms-text a:hover { text-decoration: underline; }
+
+/* ── Back to home link ──────────────────────────────────────── */
+.back-home {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.back-home a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.back-home a:hover { color: #FFD54F; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 520px) {
+    .auth-card {
+        padding: 36px 24px;
+        border-radius: 18px;
+    }
+
+    .auth-logo h1 { font-size: 22px; }
+    .auth-title   { font-size: 19px; }
+
+    .form-row-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

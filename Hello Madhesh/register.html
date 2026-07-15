@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – Hello Madhesh</title>
+    <meta name="description" content="Create your free Hello Madhesh citizen portal account to report and track local issues in Madhesh Province.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- Logo -->
+            <div class="auth-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <h1>Hello Madhesh</h1>
+                <p>Citizen Portal – Madhesh Province</p>
+            </div>
+
+            <!-- Title -->
+            <h2 class="auth-title">Create your account</h2>
+            <p class="auth-subtitle">Join thousands of citizens building a better Madhesh</p>
+
+            <!-- Register Form -->
+            <form id="registerForm" novalidate>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name <span style="color:#e74c3c">*</span></label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-user input-icon"></i>
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Ram Prasad Yadav"
+                            autocomplete="name"
+                            required>
+                    </div>
+                    <span class="field-error" id="fullNameError"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone Number <span style="color:#aaa;font-size:12px">(optional)</span></label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-phone input-icon"></i>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+977 98XXXXXXXX"
+                            autocomplete="tel">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address <span style="color:#e74c3c">*</span></label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required>
+                    </div>
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password <span style="color:#e74c3c">*</span></label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Minimum 6 characters"
+                            autocomplete="new-password"
+                            required>
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password"
+                            aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <!-- Password strength -->
+                    <div class="strength-bar" id="strengthBar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                    <span class="strength-text" id="strengthText"></span>
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password <span style="color:#e74c3c">*</span></label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-shield-halved input-icon"></i>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            required>
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="confirmPassword"
+                            aria-label="Toggle confirm password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="field-error" id="confirmPasswordError"></span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-primary" id="registerBtn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <!-- Terms -->
+            <p class="terms-text">
+                By creating an account you agree to our
+                <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>.
+            </p>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Back to home -->
+    <div class="back-home">
+        <a href="index.html">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        // If already logged in, redirect away
+        (async () => {
+            const { data } = await supabase.auth.getSession();
+            if (data.session) window.location.href = "profile.html";
+        })();
+    </script>
+
+</body>
+
+</html>
